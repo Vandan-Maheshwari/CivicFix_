@@ -3,9 +3,14 @@ from PIL import Image
 import numpy as np
 import json
 import sys
+import os
 
 # Load trained model
-MODEL_PATH = r"C:\Dont touch me !!!\GIthub\CivicFix_Project\backend\civicfix_model4.h5"
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "civicfix_model4.h5")
+
+# MODEL_PATH = r"C:\Dont touch me !!!\GIthub\CivicFix_Project\backend\civicfix_model4.h5"
 model = load_model(MODEL_PATH)
 # img_path= r"C:\\Dont touch me !!!\\GIthub\\CivicFix\\Test_rgb.jpg"
 
