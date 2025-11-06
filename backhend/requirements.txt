@@ -3,10 +3,8 @@ flask-cors
 pymongo
 gunicorn
 werkzeug
-uuid
 pillow
 tensorflow
 numpy
 python-dotenv
-gridfs
 dnspython
