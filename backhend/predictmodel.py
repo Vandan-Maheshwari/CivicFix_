@@ -6,17 +6,27 @@ import sys
 import os
 
 # Load trained model
-
+# Current directory of this file (backhend/)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Paths to model and class names
 MODEL_PATH = os.path.join(BASE_DIR, "civicfix_model4.h5")
+CLASS_NAMES_PATH = os.path.join(BASE_DIR, "class_names.json")
+
+# Load model
+model = load_model(MODEL_PATH)
+
+# Load class names
+with open(CLASS_NAMES_PATH, "r") as f:
+    class_names = json.load(f)
 
 # MODEL_PATH = r"C:\Dont touch me !!!\GIthub\CivicFix_Project\backend\civicfix_model4.h5"
-model = load_model(MODEL_PATH)
+# model = load_model(MODEL_PATH)
 # img_path= r"C:\\Dont touch me !!!\\GIthub\\CivicFix\\Test_rgb.jpg"
 
 # Load class names
-with open(r"C:\Dont touch me !!!\GIthub\CivicFix_Project\backend\class_names.json", "r") as f:
-    class_names = json.load(f)
+# with open(r"C:\Dont touch me !!!\GIthub\CivicFix_Project\backend\class_names.json", "r") as f:
+#     class_names = json.load(f)
 
 def predict_image(img_path):
     img = Image.open(img_path).convert("RGB")
