@@ -327,6 +327,18 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="api.js"></script>
+    <script>
+        async function sendComplaint(event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            const imageFile = document.getElementById("complaintImage").files[0];
+            formData.append("image", imageFile);
+
+            const result = await api.submitComplaint(formData);
+            alert("Prediction: " + result.result);
+        }
+    </script>
     <script src="home.js"></script>
 </body>
 </html>
