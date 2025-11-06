@@ -20,7 +20,10 @@ from tensorflow import keras
 from PIL import Image
 import numpy as np
 # unified with predictmodel.py
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 from predictmodel import predict_image, MODEL_PATH
+
 
 # ANONYMOUS REPORTING CONFIGURATION
 ANONYMOUS_USER_CONFIG = {
@@ -37,6 +40,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+CORS(app)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-change-in-production')
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
