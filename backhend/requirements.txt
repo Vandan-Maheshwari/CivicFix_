@@ -8,3 +8,4 @@ tensorflow
 numpy
 python-dotenv
 dnspython
+PyJWT
