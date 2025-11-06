@@ -328,6 +328,22 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="api.js"></script>
     <script>
+    async function handleLogin(event) {
+    result = await api.loginUser(email, password);
+     event.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+        const result = await api.loginUser(email, password);
+        if (result.token) {
+            localStorage.setItem("token", result.token);
+            alert("Login Successful!");
+            window.location.href = "home.html";
+        } else {
+            alert(result.message || "Login failed");
+        }
+    }
+    </script>
+    <script>
         async function sendComplaint(event) {
             event.preventDefault();
 
